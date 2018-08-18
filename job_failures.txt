@@ -1,0 +1,12 @@
+WM_Projects: 0
+WM_Reveg: 0
+WM_Sites: 0
+WM_PermitOfEntry: 0
+WM_PhotoMonitoringPoints: 0
+WM_PhotoAzimuthPoints: 0
+WM_StreamsidePhotoMonitoringPoints: 0
+WM_ProjectBasinsHuc12: 0
+WM_ProjectBasinsHuc10: 0
+WM_ProjectBasinsHuc8: 0
+SSO: 0
+IDDE: 0
