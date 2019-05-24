@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: cws-agstools
+Version: 1.0.0
+Summary: A collection of classes for working with ArcGIS services.
+Home-page: UNKNOWN
+Author: David Mangold
+Author-email: mangoldd@cleanwaterservices.org
+License: UNKNOWN
+Description: # ArcGIS Service Tools
+        
+        ArcGIS Service Tools is a collection of classes and utilities for working with ArcGIS services. For help with packaging, see the official Python [packaging guide](https://packaging.python.org/tutorials/packaging-projects/). The package name is prepended with cws- to indicate that this is a local package (not on PyPI). When installing with pip, use "cws-agstools". When importing in a Python module, use "agstools". See install command and example usage below.
+        
+        __Build using (Python 3):__
+        ```
+        python.exe setup.py sdist bdist_wheel
+        ```
+        
+        __Uninstall using (Python 3):__
+        ```
+        pip uninstall cws-agstools
+        ```
+        
+        __Install using (Python 3):__
+        ```
+        pip install cws-agstools --no-index --find-links "file://fileserv/distsw/Clean Water Services/Packages/cws-agstools"
+        ```
+        
+        __Example usage:__
+        ```python
+        import agstools
+        from agstools import FeatureLayer
+        
+        token_url = "https://arcgistest.usa.org/arcgis/tokens/generateToken"
+        username = "ihavepermission"    # replace with valid username
+        password = "iamsecure"          # replace with valid password
+        
+        token = agstools.utility.get_token(
+            token_url=token_url,
+            username=username,
+            password=password)
+        
+        # certificate required for requests to local ArcGIS server
+        certificate = "C:/Program Files/Common Files/Clean Water Services/Certificates/usa_certificates.pem"
+        layer_url = "https://arcgistest.usa.org/arcgis/rest/services/Watershed/WM_WatershedAndBasins/MapServer/0/"
+        
+        feature_layer = FeatureLayer(
+            url=layer_url,
+            token=token,
+            certificate=certificate)
+        
+        features = feature_layer.query_features_batch(where='1=1', fields='*')
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
